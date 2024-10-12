@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Home from './Screens/Home';
+import {BrowserRouter as Router , Routes, Route} from 'react-router-dom'
+import Login from './Screens/Login';
+import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css'
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
+import Signup from './Screens/Signup.js';
+import { CardProovider } from './componants/ContextReducer.js';
+import MyOrder from './Screens/MyOrder.js'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <CardProovider>
+    <Router>
+      <div>
+        <Routes>
+          <Route exact path='/' element={<Home/>}/>
+          <Route exact path='/Login' element={<Login/>}/>
+          <Route exact path='/SignUp' element={<Signup/>}/>
+          <Route exact path='/MyOrder' element={<MyOrder/>}/>
+
+        </Routes>
+      </div>
+    </Router>
+    </CardProovider>
+  
+    
+  
+  </>
+    
   );
 }
 
